@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function ulk(str) {
+        var arr=[];
+        for(var i=0;i<str.length;i++){
+            a=str.charCodeAt(i).toString();
+            if(a.length!=5){
+                for(j=0;j<=5-(a.length-1);j++){
+                    a="0"+a;
+                }
+            }
+            arr.push(a);
+        }
+        return arr.join("");
+    }
+    console.log(ulk(prompt("请输入一段话")));
+</script>
+
+</body>
+</html>
