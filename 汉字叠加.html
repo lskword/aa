@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var str = "战士@德玛西亚之力@盖伦@3000#射手@寒冰射手@艾希@2500#法师@流浪法师@瑞兹@2700";
+    var js="职业:称号:名字:价钱:";
+function zysx(str){
+    var jb=js.split(":");
+    var zy=str.split("#");/*["战士@德玛西亚之力@盖伦@3000", "射手@寒冰射手@艾希@2500", "法师@流浪法师@瑞兹@2700"]*/
+    for (var a=0;a<zy.length;a++){
+        var b=zy[a].split("@");
+        for(d=0;d<b.length;d++){
+            for(e=0;e<jb.length;e++){
+                var sum=jb[d]+":"+b[d];
+                console.log(sum);
+            }
+        }
+    }
+}zysx(str);
+
+
+
+</script>
+
+</body>
+</html>

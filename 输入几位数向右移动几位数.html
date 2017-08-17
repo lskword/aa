@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function rightchange(char,n){
+            var a=char.split(""),num,ns;
+            ns=a.slice(-n);
+            a.splice(-n,n);
+            num=ns.concat(a);
+            console.log(num.join(""));
+        }
+        rightchange("abcdefghijkl",3);
+    </script>
+
+</body>
+</html>
