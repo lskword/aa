@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        var oUl=document.querySelector('ul');
+        var oLi=document.querySelectorAll('li');
+        var onewul=document.createElement('ul');
+        onewul.appendChild(oUl.children.cloneNode(true));
+        console.log(onewul);
+    </script>
+</body>
+</html>

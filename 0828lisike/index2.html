@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            margin-top: 10px;
+            height: 40px;
+        }
+        p{
+            width: 40px;
+            height: 40px;
+            float: left;
+            background-color: red;
+            margin-left:5px ;
+        }
+        .p1{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="boxone">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+    <div id="boxtwo">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+    <script>
+        var oboxone=document.getElementById('boxone').getElementsByTagName('p');
+        var oboxtwo=document.getElementById('boxtwo').getElementsByTagName('p');
+/*        for(var i=0;i<oboxone.length;i++){
+            (function (i) {
+                oboxone[i].onclick=function () {
+                    for(var j=0;j<oboxone.length;j++){
+                        oboxtwo[j].className='';
+                    }
+                    oboxtwo[i].className="p1";
+                }
+            })(i)
+        }*/
+    for(var i=0;i<oboxone.length;i++){
+        oboxone[i].index=i;
+        oboxone[i].onclick=function () {
+            for(var j=0;j<oboxtwo.length;j++){
+                oboxtwo[j].className='';
+            }
+            oboxtwo[this.index].className='p1'
+        }
+    }
+
+
+    </script>
+
+</body>
+</html>

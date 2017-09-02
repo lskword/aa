@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" value="请输入搜索的内容"/>
+    <script>
+        var oIpt=document.querySelector('input');
+        console.log(oIpt);
+        function queryData(text) {
+            console.log('搜索:'+text);
+        };
+        var timeout;
+        function seachtop(fn,interval,text) {
+            clearTimeout(timeout);
+            timeout=setTimeout(function () {
+                fn(text);
+            },interval)
+        }
+        oIpt.onkeyup=function () {
+            seachtop(queryData,1000,this.value)
+        }
+    </script>
+</body>
+</html>

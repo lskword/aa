@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<!--<script>-->
+    <!--// getComputedStyle-->
+    <!--//获取需要改变的位置的节点-->
+    <!--var oDiv = document.getElementsByTagName('div')[0];-->
+    <!--alert(fetchComputedStyle(oDiv, 'padding-top'));-->
+    <!--alert(fetchComputedStyle(oDiv, 'paddingLeft'));-->
+    <!--//给需要改变的节点属性定义一个转换属性的方法-->
+    <!--function fetchComputedStyle(obj, property) {-->
+        <!--if (window.getComputedStyle) {-->
+            <!--// paddingLeft 需要转换成padding-left-->
+            <!--property = property.replace(/[A-Z]/g, function(match){-->
+                <!--return '-' + match.toLowerCase();-->
+            <!--});-->
+            <!--// return widow.getComputedStyle(obj).property; //表示属性名就叫property-->
+            <!--return window.getComputedStyle(obj)[property]; //中括号里面可以是变量-->
+        <!--} else {-->
+            <!--//padding-top -> paddingTop-->
+            <!--property = property.replace(/-([a-z])/g, function(match, $1){-->
+                <!--return $1.toUpperCase();-->
+            <!--});-->
+            <!--return obj.currentStyle[property];-->
+        <!--}-->
+    <!--}-->
+<!--</script>-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box1 {
+            margin: 0 auto;
+            width: 500px;
+            height: 300px;
+            padding: 50px;
+            border: 10px solid red;
+        }
+        .box2 {
+            width: 380px;
+            height: 180px;
+            padding: 50px;
+            background-color: yellow;
+            position: relative;
+        }
+        .box3 {
+            width: 260px;
+            height: 60px;
+            padding: 50px;
+            border: 10px solid green;
+        }
+        p {
+            width: 40px;
+            height: 40px;
+            background-color: gold;
+            border: 10px solid purple;
+            position: relative;
+            left:122px;
+        }
+        .he{
+            width: 100px;
+            height: 50px;
+            border:1px solid red;
+            background-color:red;
+        }
+    </style>
+    </head>
+    <body>
+    <button>←</button>
+    <button>→</button>
+    <div class="box1">
+        <div class="box2">
+            <div class="box3">
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <!--<div class="box1">哈哈哈-->
+        <!--<div class="box2">嘿嘿-->
+            <!--<div class="box3" id="buibui">嗨嗨-->
+            <!--<p>嗨嗨</p>-->
+                <mater min="0" max="100" value="60" class="he"></mater>60%
+            <!--</div>-->
+            <!--<div ></div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <script>
+        var obtnstare=document.getElementsByTagName('button')[1];
+        var obtnover=document.getElementsByTagName('button')[0];
+        var op=document.getElementsByTagName('p')[0];
+        var skit=parseInt(getComputedStyle(op).left)
+        console.log(skit)
+        var timer;
+        obtnstare.onclick=function () {
+            clearInterval(timer)
+            timer=setInterval(function (){
+                skit+=5;
+                op.style.left=skit+'px'
+            },20)
+        }
+        obtnover.onclick=function () {
+            clearInterval(timer);
+            timer=setInterval(function (){
+                skit-=5;
+                op.style.left=skit+'px'
+            },20)
+        }
+
+    </script>
+    </body>
+</html>

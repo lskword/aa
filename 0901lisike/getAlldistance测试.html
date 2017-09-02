@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div{
+        width: 500px;
+        height: 400px;
+        background-color: red;
+        margin: 70px;
+
+    }
+</style>
+<body>
+    <div></div>
+<script>
+    var oDiv=document.querySelector('div');
+    function getAllTop(obj) {
+        //累加器，累加器的初始为自己现在的offsetTop值
+        var allTop = obj.offsetTop;
+        //当前正在计算高度的元素
+        var currentObj = obj;
+        while (currentObj = currentObj.offsetParent) {
+            allTop += currentObj.offsetTop;
+        }
+        return allTop;
+    }
+
+    function getAlldistance(obj,distance){
+        var alldistance=obj.offsetTop;
+        var currentObj=obj;
+        while(currentObj=currentObj.offsetParent){
+            alldistance+=currentObj.offset+('distance');
+        }
+        return alldistance;
+    }
+    console.log(getAllTop(oDiv));
+    console.log(getAlldistance(oDiv,Top));
+</script>
+
+</body>
+</html>

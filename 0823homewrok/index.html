@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        b{
+            width: 100%;
+            height:100%;
+            display: none;
+        }
+        body{
+            background: #ccc;
+        }
+        div{
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            top:0px;
+            background: #fff;
+            -webkit-border-radius:40px;
+            -moz-border-radius:40px;
+            border-radius:40px;
+            display: none;
+        }
+        .alerts{
+            display:block;
+        }
+        i img{
+            display: block;
+            margin:50px auto;
+            width: 200px;
+            height: 200px;
+        }
+        div p{
+            line-height: 20px;
+            width: 300px;
+            margin: auto;
+            color:red;
+        }
+        form p i{
+            display: none;
+        }
+        button{
+            width: 400px;
+            height: 40px;
+            margin: 20px auto;
+            border-radius:40px;
+            outline: none;
+            background: cornflowerblue;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+        <form action="" id="biaodan">
+            <p>用户名：<input type="text" placeholder="请输入用户名"><i id="one">请输入账户为字母开头12位数</i></p>
+            <p>密码：<input type="password" class="psd" placeholder="请输入密码"><i id="two">请输入6-12位数</i></p>
+            <p>确认密码：<input type="password" class="psdagin" placeholder="请重新输入密码"><i id="three">两次密码输入的不一样</i></p>
+            <p><input type="submit" value="提交"/></p>
+        </form>
+        <b>
+        <div class="alert" id="alert">
+            <i><img src="images/5.png" alt=""></i>
+            <p>输入错误，没看到提交变灰了吗，眼瞎啊</p>
+            <button id="btn">点我从新输入</button>
+        </div>
+        </b>
+        <script>
+            var oB=document.getElementsByTagName('b')[0];
+            var obiaodan=document.getElementsByTagName('form')[0];
+            var ouser=document.getElementsByTagName('input')[0];
+            var opsd=document.getElementsByTagName('input')[1];
+            var opsdagin=document.getElementsByTagName('input')[2];
+            var osubmit=document.getElementsByTagName('input')[3];
+            var ouservalue=/^[(a-z)|(A-Z)]\w{5,11}/;
+            var oalert=document.getElementById('alert');
+            var obtn=document.getElementById('btn');
+            var oone=document.getElementById('one');
+            var otwo=document.getElementById('two');
+            var othree=document.getElementById('three');
+                ouser.onblur=function(){
+                    if(!ouservalue.test(ouser.value)){
+                        osubmit.disabled=true;
+                        oalert.className=' alerts';
+                        oone.className=' alerts';
+                        oB.style.display='block'
+
+                    }else if(ouservalue.test(ouser.value)){
+                        osubmit.disabled=false;
+                        oone.style.display='none'
+                    }
+                };
+                opsd.onblur=function() {
+                    if (!/\d{6,18}/.test(opsd.value)) {
+                        osubmit.disabled=true;
+                        oalert.className=' alerts'
+                        otwo.className=' alerts';
+                        oB.style.display='block'
+                        }else if(!/\d{6,18}/.test(opsd.value)){
+                        osubmit.disabled=false;
+                        otwo.style.display='none'
+                    }
+                };
+                opsdagin.onblur=function() {
+                if (opsd.value != opsdagin.value) {
+                    oalert.className=' alerts'
+                    othree.className=' alerts';
+                    oB.style.display='block'
+                    osubmit.disabled =true;
+                } else if (opsd.value = opsdagin.value) {
+                    osubmit.disabled =false;
+                    othree.style.display='none'
+                }
+                };
+                obtn.onclick=function () {
+                oalert.className= 'alert';
+            }
+        </script>
+</body>
+</html>

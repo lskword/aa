@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-color: yellowgreen;
+      top: 100px;
+      left: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <script src="animate.js" charset="utf-8"></script>
+  <script>
+    var oDiv = document.getElementsByTagName('div')[0];
+    var oDiv1 = document.getElementsByTagName('div')[1];
+    var oDiv2 = document.getElementsByTagName('div')[2];
+    var oDiv3 = document.getElementsByTagName('div')[3];
+    move();
+    function move() {
+      animate(oDiv, {"left":600}, 300, function(){
+        animate(oDiv1, {"left": 600}, 300, function(){
+          animate(oDiv2, {"left": 600}, 300, function(){
+            animate(oDiv3, {"top": 600}, 300, function(){
+              move();
+            })
+          })
+        })
+      });
+    }
+  </script>
+</body>
+</html>

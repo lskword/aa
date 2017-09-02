@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .right{
+            background: darkseagreen;
+            color: #fff;
+        }
+        .false{
+            background: red;
+            color:#CCCCCC;
+        }
+        span{
+            font-size: 15px;
+        }
+        input{
+            font-size: 20px;
+        }
+        div{
+            font-size: 20px;
+            height: 30px;
+            background-color: #ccc;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">once upon a time a little girl tried to make a living by selling matches in the</div>
+    <input type="text" >
+    <script>
+        var oDiv=document.querySelector('div');
+        var oInput=document.querySelector('input')
+         var textmodos=oDiv.innerText
+        addText(textmodos)
+        function addText(textmodo) {
+            for (var i=0;i<textmodo.length;i++){
+               var oSpan=document.createElement('span');
+               oSpan.innerText=textmodo[i];
+               oInput.appendChild(oSpan);
+            }
+            oInput.style.width=10*(textmodo.length)+'px';
+        }
+    </script>
+</body>
+</html>

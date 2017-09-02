@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bg{
+        background:red;
+        }
+        .bg1{
+            background:blue;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><input type="checkbox" checked>吃饭</li>
+    <li><input type="checkbox" checked>打豆豆</li>
+    <li><input type="checkbox" checked>睡觉</li>
+    <li><input type="checkbox" checked>喝水</li>
+</ul>
+<script>
+    var iptall=document.getElementsByTagName('input');
+
+    for(var i=0;i<iptall.length;i++){
+        iptall[i].parentNode.className='bg';
+
+    iptall[i].onclick=function () {
+        this.parentNode.className = this.checked === true ? 'bg1' : '';
+        console.log(this.checked);
+        }
+    }
+</script>
+
+</body>
+</html>

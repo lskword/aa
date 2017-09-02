@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background-color: orange;
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    var oDiv=document.querySelector('div');
+//    oDiv.onmousemove=function (event) {
+        oDiv.addEventListener('mousemove',function () {
+            event=event||window.event;
+            var x=event.offsetX;
+            var y=event.offsetY;
+//            oDiv.innerText=`${x}:${y}`;
+            oDiv.innerText=x+':'+y;
+        })
+//    }
+    //定义一个函数
+    function getAllTop(obj) {
+            //让对象的卷动距离值赋给ALLTOP
+        var allTop = obj.offsetTop;
+        //创建一个对象赋值OBJ
+        var currentObj = obj;
+        //判断上面的变量上方是否有父级元素。如果有就进行循环，如果没有就停止循环
+        while (currentObj = currentObj.offsetParent) {
+            //每次循环都将两者的值相加
+            allTop += currentObj.offsetTop;
+        }
+        //返回总值ALLTOP
+        return allTop;
+    }
+    function getAllLeft(obj) {
+        var allLeft = obj.offsetLeft;
+        var currentObj = obj;
+        while(currentObj = currentObj.offsetParent) {
+            allLeft += currentObj.offsetLeft;
+        }
+        return allLeft;
+    }
+</script>
+</body>
+</html>

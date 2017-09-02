@@ -1,0 +1,4 @@
+iframe 可以单独使用   且随意可以放在任何位置
+frame  不可以单独使用  且必须要绑定 frameSet一起使用 且只能放在BODY窗口里面
+frame的高度只能通过frameSet控制；
+iframe可以自己控制，不能通过frameSet控制

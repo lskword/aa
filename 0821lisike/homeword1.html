@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            width: 300px;
+            height:300px;
+            margin:0 auto;
+            position: absolute;
+            left:0px;
+            right:0px;
+            bottom: 0px;
+            top:0px;
+
+        }
+        div{
+            position: relative;
+        }
+        table{
+            z-index: 1;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <table>
+            <tr>
+                <td><button>左上</button></td>
+                <td><button>上</button></td>
+                <td> <button>右上</button></td>
+            </tr>
+            <tr>
+                <td> <button>左</button></td>
+                <td></td>
+                <td><button>右</button></td>
+            </tr>
+            <tr>
+                <td><button>左下</button></td>
+                <td><button>下</button></td>
+                <td><button>右下</button></td>
+            </tr>
+        </table>
+
+
+
+
+
+
+
+
+        <img src="http://img.taopic.com/uploads/allimg/140313/235026-1403130Z43831.jpg" alt="">
+    </div>
+    <script>
+        var img=document.getElementsByTagName('img')[0];
+        var otop=document.getElementsByTagName('button')[1];
+        var obottom=document.getElementsByTagName('button')[6];
+        var oleft=document.getElementsByTagName('button')[3];
+        var oright=document.getElementsByTagName('button')[4];
+        var orighttop=document.getElementsByTagName('button')[2];
+        var orightbottom=document.getElementsByTagName('button')[7];
+        var olefttop=document.getElementsByTagName('button')[0];
+        var oleftbottom=document.getElementsByTagName('button')[5];
+        var nowwz = 0;
+
+        oleft.onclick = function() {
+            nowwz -= 10;
+            move();
+        };
+        oright.onclick = function() {
+            nowwz += 10;
+            move();
+        };
+        otop.onclick = function() {
+            nowwz -= 10;
+            move1();
+        };
+        obottom.onclick = function() {
+            nowwz += 10;
+            move1();
+        };
+        orightbottom.onclick = function() {
+            nowwz += 10;
+            move2();
+        };
+        olefttop.onclick = function() {
+            nowwz -= 10;
+            move2();
+        };
+        oleftbottom.onclick=function () {
+            nowwz +=10;
+            img.style.top = nowwz + 'px';
+            img.style.left = -(nowwz) + 'px';
+
+        };
+        orighttop.onclick=function () {
+            nowwz -=10;
+            img.style.top = nowwz + 'px';
+            img.style.left = -(nowwz) + 'px';
+
+        }
+
+
+        function move2() {
+            img.style.top = nowwz + 'px';
+            img.style.left = nowwz + 'px';
+        }
+        function move1() {
+            img.style.top = nowwz + 'px';
+
+        }
+        function move() {
+            img.style.left = nowwz + 'px';
+        }
+
+    </script>
+</body>
+</html>

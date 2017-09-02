@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background:rgb(111,111,111);
+        }
+    </style>
+</head>
+<body >
+        <dl>
+            <dd>
+                <span>r:</span>
+                <button class="but1">-</button>
+                <input type="text" value=111 class="r">
+                <button class="but2">+</button>
+            </dd>
+            <dd>
+                <span>g:</span>
+                <button class="but3">-</button>
+                <input type="text" value='111'class="g">
+                <button class="but4">+</button>
+            </dd>
+            <dd>
+                <span>b:</span>
+                <button class="but5">-</button>
+                <input type="text" value="111"class="b">
+                <button class="but6">+</button>
+            </dd>
+            <dd>
+                <button id="gg">go</button>
+            </dd>
+        </dl>
+        <script>
+
+            var obody=document.getElementsByTagName('body')[0];
+            var ogo=document.getElementById('gg');
+            var but1=document.getElementsByClassName('but1')[0];
+            var but2=document.getElementsByClassName('but2')[0];
+            but1.onclick=function () {
+                but1.nextSibling.nextSibling.value=parseInt(but1.nextSibling.nextSibling.value)-3;
+            };
+            but2.onclick=function () {
+                but2.previousSibling.previousSibling.value=parseInt(but2.previousSibling.previousSibling.value)+3;
+            };
+            var but3=document.getElementsByClassName('but3')[0];
+
+            var but4=document.getElementsByClassName('but4')[0];
+
+            but3.onclick=function () {
+                but3.nextSibling.nextSibling.value=parseInt(but3.nextSibling.nextSibling.value)-3;
+            };
+            but4.onclick=function () {
+                but4.previousSibling.previousSibling.value=parseInt(but4.previousSibling.previousSibling.value)+3;
+            };
+            var but5=document.getElementsByClassName('but5')[0];
+            var but6=document.getElementsByClassName('but6')[0];
+            but5.onclick=function () {
+                but5.nextSibling.nextSibling.value=parseInt(but5.nextSibling.nextSibling.value)-3;
+            };
+            but6.onclick=function () {
+                but6.previousSibling.previousSibling.value=parseInt(but6.previousSibling.previousSibling.value)+3;
+            };
+            var or=parseInt();
+            var og=parseInt();
+            var ob=parseInt();
+            ogo.onclick=function () {
+                b='rgb'+'('+but1.nextSibling.nextSibling.value+','+but4.previousSibling.previousSibling.value+','+but5.nextSibling.nextSibling.value+')'
+                obody.style.background=b;
+                if(but1.nextSibling.nextSibling.value==0){
+                    but1.nextSibling.nextSibling.value==0
+                }
+                if(but1.nextSibling.nextSibling.value==250){
+                    but1.nextSibling.nextSibling.value==250
+                }
+                if(but4.nextSibling.nextSibling.value==0){
+                    but4.nextSibling.nextSibling.value==0
+                }
+                if(but4.nextSibling.nextSibling.value==250){
+                    but4.nextSibling.nextSibling.value==250
+                }
+                if(but5.nextSibling.nextSibling.value==0){
+                    but5.nextSibling.nextSibling.value==0
+                }
+                if(but5.nextSibling.nextSibling.value==250){
+                    but5.nextSibling.nextSibling.value==250
+                }
+
+
+
+
+            } ;
+
+        </script>
+
+</body>
+</html>

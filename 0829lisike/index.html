@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            list-style: none;
+
+        }
+    </style>
+</head>
+<body>
+    <lable for="password">密码：</lable>
+    <input type="text" name="" id="txt">
+    <input type="button" value="添加">
+    <h2>待办事项</h2>
+    <ul>
+        <li>监督傻瓜在睡觉</li>
+    </ul>
+    <script>
+        var oTxt=document.querySelector('#txt');
+        var oIpt=document.getElementsByTagName('input')[1];
+        var oUl=document.querySelector('ul');
+        oIpt.onclick=function () {
+            var oLi=document.createElement('li');
+            var olis=document.querySelectorAll('li');
+            oLi.innerText=oTxt.value;
+            oUl.insertBefore(oLi,olis[0])
+            oTxt.value='';
+        }
+    </script>
+
+</body>
+</html>

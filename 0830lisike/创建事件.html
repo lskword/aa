@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div>div</div>
+    <span>
+        点我触发DIV事件
+    </span>
+    <script>
+        var Oeve = new Event ('build')
+        var Odiv=document.querySelector('div');
+//        var Oeve=document.createElement('Event');
+//        Oeve.initEvent('build',true,true);
+        Odiv.addEventListener('build',function () {
+            Odiv.style.backgroundColor='red'
+            Odiv.style.height='300px'
+            Odiv.style.width='300px'
+        })
+        var Ospan=document.querySelector('span')
+        Ospan.onclick=function () {
+            Odiv.dispatchEvent(Oeve)
+        }
+
+    </script>
+
+</body>
+</html>

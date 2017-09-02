@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #email-error{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <input type="email">
+        <span id="email-error">
+            邮箱格式不正确
+        </span>
+        <input type="submit">
+    </form>
+    <script>
+         var oEmail=document.querySelector('input[type=email]');
+        var oEmailError=document.getElementById('email-error');
+    </script>
+</body>
+</html>

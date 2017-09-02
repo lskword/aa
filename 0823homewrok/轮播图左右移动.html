@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    ul,li {
+        list-style: none;
+    }
+    .rolling {
+        width: 800px;
+        height: 130px;
+        border: 10px solid #ccc;
+        margin: 100px auto;
+        position: relative;
+        overflow: hidden;
+
+    }
+    .rolling .m_unit {
+        /*//这是运动的单元*/
+        position: absolute;
+        width: 5000px;
+        top: 0;
+        left: 0;
+    }
+    .rolling ul li {
+        float: left;
+        margin-right: 10px;
+    }
+    .rolling ul li img {
+        height: 130px;
+    }
+</style>
+</head>
+<body>
+<div class="rolling" id="rolling">
+    <div class="m_unit" id="m_unit">
+        <ul>
+            <li><a href=""><img src="images/0.jpg" alt=""></a></li>
+            <li><a href=""><img src="images/1.jpg" alt=""></a></li>
+            <li><a href=""><img src="images/2.jpg" alt=""></a></li>
+            <li><a href=""><img src="images/3.jpg" alt=""></a></li>
+            <li><a href=""><img src="images/4.jpg" alt=""></a></li>
+        </ul>
+    </div>
+</div>
+<script>
+    var oRolling = document.getElementById('rolling');
+    var oMUnit = document.getElementById('m_unit');
+    var oListUl = document.getElementsByTagName('ul')[0];
+    var listlength = oListUl.getElementsByTagName('li').length;
+
+    oListUl.innerHTML += oListUl.innerHTML;
+
+    var nowLeft = -317*listlength;
+    var timer;
+    mov();
+        oRolling.onmouseover=function () {
+            clearInterval(timer);
+        }
+        oRolling.onmouseout=function () {
+            mov();
+        }
+    function mov() {
+        clearInterval(timer);
+        timer=setInterval(function () {
+            nowLeft += 2;
+            oMUnit.style.left=nowLeft+'px';
+            if(nowLeft>=0){
+                nowLeft=-317*listlength
+            }
+        },20)
+    }
+//    var t=0;
+//        var timer=setInterval(function () {
+//            t++;
+//            console.log(t);
+//            if(t>3){
+//                clearInterval(timer)
+//                mov();
+//            }
+//        },3000)
+//    function mov() {
+//        console.log('任务执行完成')
+//    }
+</script>
+
+</body>
+</html>

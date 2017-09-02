@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text">
+    <input type="button" value="添加一项">
+    <h2>待办事项</h2>
+    <ul>
+        <li>买css杯子</li>
+        <li>买js鼠标垫</li>
+        <li>买git的衣服</li>
+    </ul>
+    <script>
+        var oTxt = document.querySelector('input[type=text]');
+        var oBtn = document.querySelector('input[type=button]');
+        var oUl = document.querySelector('ul');
+        oUl.onclick=function(event){
+            event=event||window.event;
+            var q=event.target||event.srcElement;
+            q.parentNode.removeChild(q);
+        }
+        oBtn.onclick=function () {
+            var oLi=document.createElement('li');
+            oLi.innerText=oTxt.value
+            oUl.appendChild(oLi);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!doctype html>
+    <html>
+    <head>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            html,body {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+            .container {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .page {
+                width: 100%;
+                height: 100%;
+                background-color: red;
+            }
+            .page1 { background-color: green; }
+            .page2 { background-color: blue; }
+            .page3 { background-color: orange; }
+            .page4 { background-color: purple; }
+        </style>
+    </head>
+<body>
+    <div id="container" class="container">
+        <div class="page page0"><h1>0</h1></div>
+        <div class="page page1"><h1>1</h1></div>
+        <div class="page page2"><h1>2</h1></div>
+        <div class="page page3"><h1>3</h1></div>
+        <div class="page page4"><h1>4</h1></div>
+    </div>
+    <script>
+        var oDiv=document.querySelector('#container');
+        var index=0;
+        //给windonw添加鼠标滚动事件
+        window.onmousewheel=function (event) {
+            //排除event的兼容性
+            event=event||window.event;
+            //出去默认样式兼容性
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+            //规范一下方向
+            if (event.wheelDelta) {
+                //默认情况是向上滚动显示120，现在自定义位一，反方向为负一
+                var direction = event.wheelDelta > 0 ? 1 : -1;
+            } else {
+                //火狐反方向为一，向下滚动为负一
+                var direction = event.detail > 0 ? -1 : 1;
+            }
+            //让滚动值规范向上位减，向下为加
+            index -=direction;
+            if(index<0){
+                index=0;
+            }
+            if(index>4){
+                index=4;
+            }
+            oDiv.style.top=-index*100+'%';
+        }
+    </script>
+</body>
+</html>
+
+</body>
+</html>

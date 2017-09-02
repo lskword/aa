@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>div</div>
+    <button>点我点我有惊喜</button>
+    <script>
+        var oDiv=document.querySelector('div');
+        var oSpan=document.querySelector('button');
+        var ENVEN=new Event ('build');
+        var stare=0;
+        oSpan.onclick=function () {
+            stare=!stare? 1 : 0 ;
+            console.log(stare)
+            oDiv.dispatchEvent(ENVEN);
+        }
+        oDiv.addEventListener('build',function () {
+            if(stare===1){
+                this.style.width='199px'
+                this.style.height='199px'
+                this.style.backgroundColor='red'
+            }else{
+                this.style.backgroundColor='blue'
+            }
+
+        })
+    </script>
+
+</body>
+</html>

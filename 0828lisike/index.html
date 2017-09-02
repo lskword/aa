@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        div{
+            width: 780px;
+            height: 330px;
+            overflow: hidden;
+            margin:40px auto;
+            border: 10px solid #666666;
+            position: relative;
+        }
+        dl{
+            width: 5000px;
+            height: 330px;
+            position: absolute;
+        }
+        i{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top:50%;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            color: #fff;
+            font-size:30px;
+            font-weight:600;
+            margin-top:-25px;
+            border-radius:10px;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+        dd{
+            float: left;
+            width: 780px;
+            height: 330px;
+        }
+        dd img{
+            width: 780px;
+            height: 330px;
+        }
+        ul{
+            display:block;
+            width: 150px;
+            height: 20px;
+            position:absolute;
+            bottom:10px;
+            left:360px;
+            margin-left:-50px;
+        }
+        ul>li{
+            border-radius: 100%;
+            background: #CCCCCC;
+            width: 20px;
+            height: 20px;
+            float: left;
+            margin:auto 5px;
+            cursor: pointer;
+        }
+        .i2{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+        <i>←</i>
+        <i style="left:730px;">→</i>
+    <dl>
+        <dd><img src="images/0.jpg" alt=""></dd>
+        <dd><img src="images/1.jpg" alt=""></dd>
+        <dd><img src="images/2.jpg" alt=""></dd>
+        <dd><img src="images/3.jpg" alt=""></dd>
+        <dd><img src="images/4.jpg" alt=""></dd>
+    </dl>
+    <ul>
+        <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+</div>
+<script>
+    var oDl=document.getElementsByTagName('dl')[0];
+    var oDlstar=parseInt(getComputedStyle(oDl).left);
+    var olistDl=document.getElementsByTagName('dl')[0];
+    var oimgs=document.getElementsByTagName('img');
+    var oimgsskep=parseInt(oimgs.length);
+    var oLis=document.getElementsByTagName('li');
+    var oI=document.getElementsByTagName('i');
+    var sept=0;
+    olistDl.innerHTML+=olistDl.innerHTML
+    setInterval(function () {
+            sept-=5;
+        if(sept<=-780*oimgsskep){
+            sept=0;
+        }
+        oDl.style.left=sept+'px'
+    },30)
+    for (var i=0;i<oLis.length;i++){
+        oLis[i].onmouseover=function () {
+                for (var j=0;j<oLis.length;j++){
+                    oLis[j].style.background="#ccc";
+                }
+            this.style.background="yellow";
+        }
+    }
+    for(var i=0;i<oI.length;i++){
+        oI[i].onclick=function () {
+            for(var j=0;j<oI.length;j++){
+                oI[j].className='';
+            }
+            this.className+='i2'
+        }
+    }
+</script>
+</body>
+</html>

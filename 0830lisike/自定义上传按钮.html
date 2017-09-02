@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="file">
+    <button>上传</button>
+    <script>
+        var oipt=document.querySelector('input[type=file]');
+        var obtn=document.querySelector('button');
+        obtn.onclick=function () {
+            oipt.click();
+        }
+    </script>
+
+</body>
+</html>

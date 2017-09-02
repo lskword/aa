@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            border-radius: 100%;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    var oDiv=document.querySelector('div');
+    var deletx=parseInt(getComputedStyle(oDiv).width)/2;
+    oDiv.onmousedown=function () {
+    document.onmousemove=function (event) {
+        event=event||window.event;
+        oDiv.style.left=event.clientX-deletx+'px';
+        oDiv.style.top=event.clientY-deletx+'px';
+         }
+    }
+    document.onmouseup=function () {
+        document.onmousemove=null
+    }
+</script>
+
+</body>
+</html>

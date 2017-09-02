@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        body,html{
+            width: 100%;
+            height: 100%;
+        }
+        div{
+            width:100%;
+            height: 100%;
+            background:rgba(000,000,000,.3);
+            position: absolute;
+        }
+        #b{
+            display: block;
+            background: none;
+        }
+        i{
+            width: 300px;
+            height: 300px;
+            border:1px solid blanchedalmond;
+            border-radius: 10px;
+            background: blanchedalmond;
+            position: absolute;
+            margin:auto;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+        input{
+            width: 30px;
+            height: 30px;
+            float: right;
+            border-radius: 100%;
+            outline:none;
+        }
+        #nns{
+           display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="b" >
+        <button>点我提示</button>
+        <button>
+            点我试试看
+        </button>
+    </div>
+
+    <div id="nns">
+        <i>
+            <input type="button" value="X" id="false">
+        </i>
+    </div>
+    <script>
+        var oBtn=document.querySelectorAll('button')[0];
+        var oBtn1=document.querySelectorAll('button')[1];
+        var Odiv=document.querySelector('#nns');
+        oBtn.onclick=function () {
+            Odiv.style.display='block'
+        }
+        var oFalse=document.querySelector('#false');
+        oFalse.onclick=function () {
+            Odiv.style.display='none'
+        }
+        oBtn1.addEventListener('click',function () {
+            alert('你也就在屏幕变白的时候能找到我而已')
+        })
+    </script>
+
+</body>
+</html>

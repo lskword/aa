@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        div{
+            width: 780px;
+            height: 330px;
+            overflow: hidden;
+            margin:40px auto;
+            border: 10px solid #666666;
+            position: relative;
+        }
+        dl{
+            width: 5000px;
+            height: 330px;
+            position: absolute;
+            left:0px;
+        }
+        i{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top:50%;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            color: #fff;
+            font-size:30px;
+            font-weight:600;
+            margin-top:-25px;
+            border-radius:10px;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+        dd{
+            float: left;
+            width: 780px;
+            height: 330px;
+        }
+        dd img{
+            width: 780px;
+            height: 330px;
+        }
+        ul{
+            display:block;
+            width: 150px;
+            height: 20px;
+            position:absolute;
+            bottom:10px;
+            left:360px;
+            margin-left:-50px;
+        }
+        ul>li{
+            border-radius: 100%;
+            background: #CCCCCC;
+            width: 20px;
+            height: 20px;
+            float: left;
+            margin:auto 5px;
+            cursor: pointer;
+        }
+        .i2{
+            background: pink;
+        }
+        .y{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+        <i>←</i>
+        <i style="left:730px;">→</i>
+    <dl>
+        <dd><img src="../0826lisike/images/0.jpg" alt=""></dd>
+        <dd><img src="../0826lisike/images/1.jpg" alt=""></dd>
+        <dd><img src="../0826lisike/images/2.jpg" alt=""></dd>
+        <dd><img src="../0826lisike/images/3.jpg" alt=""></dd>
+        <dd><img src="../0826lisike/images/4.jpg" alt=""></dd>
+    </dl>
+    <ul>
+        <li class="y"></li><li></li><li></li><li></li><li></li>
+    </ul>
+</div>
+<script>
+    var oDl=document.getElementsByTagName('dl')[0];
+    var oDlstar=parseInt(getComputedStyle(oDl).left);
+    var olistDl=document.getElementsByTagName('dl')[0];
+    var oimgs=document.getElementsByTagName('img');
+    var oimgsskep=parseInt(oimgs.length);
+    var ophotolength=parseInt(getComputedStyle(document.getElementsByTagName('img')[0]).width)
+    var oLis=document.getElementsByTagName('li');
+    var oI=document.getElementsByTagName('i');
+    var sept=0;
+    olistDl.innerHTML+=olistDl.innerHTML
+    var index = 0;
+
+        oI[0].onclick=function () {
+            index++;
+            for(var j=0;j<oI.length;j++){
+                oI[j].className='';
+            }
+            this.className+='i2'
+
+            if((-index*ophotolength)<(-oimgsskep*(ophotolength-1))){
+                index=0;
+            }
+            oDl.style.left=(-index*ophotolength)+'px';
+            for (var j=0;j<oLis.length;j++){
+                oLis[j].className='';
+            }
+            oLis[index].className='y';
+            console.log(oLis[index])
+        }
+        oI[1].onclick=function () {
+            index--;
+            for(var j=0;j<oI.length;j++){
+                oI[j].className='';
+            }
+            this.className+='i2'
+            if((index*ophotolength)<(-oimgsskep*(ophotolength))){
+                index=0;
+            }
+            oDl.style.left=(index*ophotolength)+'px';
+            for (var j=0;j<oLis.length;j++){
+                oLis[j].className='';
+            }
+            oLis[-index].className='y';
+        }
+        for (var i=0;i<oLis.length;i++){
+            oLis[i].onmouseover=function () {
+
+        }}
+</script>
+</body>
+</html>

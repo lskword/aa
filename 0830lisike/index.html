@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button>增加</button>
+    <button>删除</button>
+    <script>
+//        var Obtn=document.querySelectorAll('button')
+//        Obtn[0].onclick=function () {
+//            console.log(1);
+//        }
+//        Obtn[1].onclick=function () {
+//            Obtn[0].onclick=null
+//        }
+//        function cli() {
+//            console.log(1);
+//        }
+//        Obtn[0].addEventListener('click',cli);
+//            Obtn[1].addEventListener('click',function () {
+//                Obtn[0].removeEventListener('click',cli)
+//            })
+            var Obtn=document.querySelectorAll('button')
+            function cli() {
+                console.log(1);
+                this.removeEventListener('click',cli);
+            }
+            Obtn[0].addEventListener('click',cli);
+    </script>
+
+</body>
+</html>

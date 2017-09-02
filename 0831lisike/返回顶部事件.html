@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 5000px;
+        }
+        input{
+            width: 150px;
+            height: 50px;
+            position: fixed;
+            right:20px;
+            bottom:30px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type='button' value="点我返回顶部">
+    <script>
+        oIput=document.querySelector('input');
+        function returnTop(obj,distance) {
+            var distance=distance||550;
+        window.onscroll=function () {
+            if(document.body.scrollTop||
+                document.documentElement.scrollTop>distance){
+                obj.style.display='block'
+            }else{
+                obj.style.display='none'
+            }
+        }
+        oIput.addEventListener('click',function () {
+            document.body.scrollTop=
+                document.documentElement.scrollTop=0
+        })
+        }
+        returnTop(oIput,500);
+    </script>
+
+</body>
+</html>

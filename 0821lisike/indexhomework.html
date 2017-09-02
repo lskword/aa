@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:300px;
+            height:300px;
+            border: 1px solid red;
+        }
+        img{
+            width: 300px;
+            height:300px;
+        }
+    </style>
+</head>
+<body>
+    <button>js1</button>
+    <button>js2</button>
+    <button>js3</button>
+
+    <script>
+        var js=["js1.js","js2.js","js3.js"];
+            console.log(js[1])
+        var oJsBtn=document.querySelectorAll('button');
+        for (var i=0;i<oJsBtn.length;i++){
+            oJsBtn[i].addEventListener('click',function () {
+                    var oJsBtns=document.createElement('script');
+                    oJsBtns.src=js[i];
+                    console.log(js[i])
+                    oJsBtn.appendChild(oJsBtns);
+            })
+        }
+    </script>
+
+</body>
+</html>
